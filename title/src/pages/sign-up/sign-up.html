@@ -16,9 +16,10 @@
   <ion-item>
     <ion-label floating>Password</ion-label>
     <ion-input [type]="passwordInputType" [(ngModel)]="password"></ion-input>
-    <button ion-button clear item-end icon-start  (click)="triggerPassword()">
+    <button class="showPassword" ion-button clear item-end icon-start  (click)="triggerPassword()">
       <ion-icon [name]="passwordIcon"></ion-icon>
     </button>
   </ion-item>
+  <button ion-button color="dark" (click)="goToLogIn()" class="button" outline round>Sign Up</button>
 
 </ion-content>

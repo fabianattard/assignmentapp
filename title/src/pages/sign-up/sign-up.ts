@@ -36,5 +36,9 @@ export class SignUpPage {
     this.passwordInputType = this.passwordHidden ? "password" : "text";
     this.passwordIcon = this.passwordHidden ? "eye-off" : "eye";
   }
-
+  
+  public goToLogIn():void
+  {
+    this.navCtrl.push("logIn");
+  }
 }
