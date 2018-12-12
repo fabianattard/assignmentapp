@@ -1,0 +1,16 @@
+<ion-content padding>
+  <img src="assets/imgs/logo.png" class="logo">
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <button ion-button color="dark" (click)="goToNewsFeed()" class="button" outline round>Log In</button>
+  <p>Don't have an account? <a (click)="goToSignUp()">Create One</a></p>
+  
+</ion-content>
