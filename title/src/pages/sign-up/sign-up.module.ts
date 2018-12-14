@@ -10,4 +10,7 @@ import { SignUpPage } from './sign-up';
     IonicPageModule.forChild(SignUpPage),
   ],
 })
-export class SignUpPageModule {}
+export class SignUpPageModule 
+{
+  
+}
