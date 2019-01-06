@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage, NavParams } from 'ionic-angular';
+import { NavController, IonicPage, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
+
 @IonicPage({ name: 'logIn'})
 @Component({
   selector: 'page-home',
@@ -17,11 +18,13 @@ export class HomePage {
     private submitAttempt: boolean = false;
 
   constructor(
+    public alertCtrl: AlertController,
     public formBuilder: FormBuilder,
+    public loadCtrl: LoadingController,
     public navCtrl: NavController,
     public navParams:NavParams,
-    public userService : UserServiceProvider) {
-
+    public userService : UserServiceProvider) 
+    {
       // this command will set up the form validation
       this.loginGroup= this.formBuilder.group({
         // the email field is required
@@ -30,7 +33,6 @@ export class HomePage {
         // the password field is required
         password: ['',Validators.required]
       });
-
   }
 
   public goToNewsFeed():void
@@ -55,18 +57,33 @@ export class HomePage {
         return;
       }
       
+      // Create and show a loading interface.
+      const loader = this.loadCtrl.create({
+        content:'Logging in...'
+      });
+      loader.present();
+
       //Observable functions will only start their code if we write subscribe().
-      this.userService.login().subscribe(
+      this.userService.login(this.loginGroup.value).subscribe(
       //We are successful, do the rest 
       data => {
-        console.log("We are succesful!");
-        console.log(data);
+        loader.dismiss();
+        this.userService.storeUser(data.userdata);
+        this.navCtrl.setRoot('newsFeed', {}, {animate: true});
+        
       },
 
       //we have an error, handle it 
       error => {
-        console.error("We have failed!");
-        console.error(error);
+        loader.dismiss();
+
+        // if the website didn't log us in, show an alert.
+        const alert = this.alertCtrl.create({
+          title: 'Login Error',
+          subTitle: error.message,
+          buttons: ['OK'] 
+        });
+        alert.present();
       }
       );
     }
