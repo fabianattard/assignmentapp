@@ -1,30 +1,47 @@
 <ion-header no-border>
   <ion-navbar transparent></ion-navbar>
 </ion-header>
+
 <ion-content padding>
-  <img src="assets/imgs/logo.png" class="logo">
-  <ion-item>
-    <ion-label floating>Name</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+  <img src="assets/imgs/title.png" class="logo">
 
-  <ion-item>
-    <ion-label floating>Surname</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+  <form [formGroup]="signUpGroup">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName= "name"></ion-input>
+    </ion-item>
+    <ion-item class="error" *ngIf="!signUpGroup.get('name').valid && (signUpGroup.get('name').dirty || submitAttempt)">
+      <small>Name cannot be left empty</small>
+    </ion-item>
+
+    
+    <ion-item>
+     <ion-label floating>Surname</ion-label>
+      <ion-input type="text" formControlName= "surname"></ion-input>
+    </ion-item> 
+      <ion-item class="error" *ngIf="!signUpGroup.get('surname').valid && (signUpGroup.get('surname').dirty || submitAttempt)">
+        <small>Surname cannot be left empty</small>
+    </ion-item>
   
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email"></ion-input>
-  </ion-item>
+    <ion-item>
+     <ion-label floating>Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item class="error" *ngIf="!signUpGroup.get('email').valid && (signUpGroup.get('email').dirty || submitAttempt)">
+    <small>Email cannot be left empty</small>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input [type]="passwordInputType" [(ngModel)]="password"></ion-input>
-    <button class="showPassword" ion-button clear item-end icon-start  (click)="triggerPassword()">
-      <ion-icon [name]="passwordIcon"></ion-icon>
-    </button>
-  </ion-item>
-  <button ion-button color="dark" (click)="goToLogIn()" class="button" outline round>Sign Up</button>
-
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [type]="passwordInputType" formControlName="password"></ion-input>
+      <button class="showPassword" ion-button clear item-end icon-start  (click)="triggerPassword()">
+        <ion-icon [name]="passwordIcon"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item class="error" *ngIf="!signUpGroup.get('password').valid && (signUpGroup.get('password').dirty || submitAttempt)">
+      <small>Password cannot be left empty</small>
+    </ion-item>
+  </form>
+  <button ion-button color="dark" (click)="signUp()" class="button" outline round>Sign Up</button>
+  <p>Already have an account? <a (click)="goToLogIn()">Log In</a></p>
 </ion-content>

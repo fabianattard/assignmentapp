@@ -5,6 +5,24 @@ page-sign-up {
     .button{
         display:block;
         margin: auto;
-        margin-top: 32px;
+        margin-top: 50px;
+    }
+
+    .logo {
+        width: 250px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    p{
+        font-size: 12px;
+        text-align: center;
+        margin-top: 15px;
+    }
+    a{
+        color: black;
+        font-weight: bold;
+        font-size: 12px;
     }
 }

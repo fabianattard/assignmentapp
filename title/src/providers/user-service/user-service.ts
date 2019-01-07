@@ -53,6 +53,16 @@ export class UserServiceProvider {
     );
   }
 
+   // Observables are structures that are capable of waiting for a request/connection to finish
+   public signUp(credentials:any): Observable<any>
+   {
+     // the link here for the assignment will ideally be : http://api/assignment.local/login.php
+     return this.http.post<any>('http://api.assignment.local/login.php', credentials)
+     .pipe(
+       catchError(error => { return Observable.throw(error.error); })
+     );
+   }
+
   // Stores the information for a user on this app. 
   public storeUser(data: any): void
   {

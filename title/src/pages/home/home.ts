@@ -9,6 +9,7 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
   templateUrl: 'home.html',
   providers: [UserServiceProvider]
 })
+
 export class HomePage {
 
     // Form Groups will automate  any data and validation in our forms.
@@ -69,7 +70,7 @@ export class HomePage {
       data => {
         loader.dismiss();
         this.userService.storeUser(data.userdata);
-        this.navCtrl.setRoot('newsFeed', {}, {animate: true});
+        this.navCtrl.setRoot('newsFeed', {  }, {animate: true});
         
       },
 
