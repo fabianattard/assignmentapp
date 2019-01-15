@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PostsProvider } from '../../providers/posts/posts';
 
 /**
  * Generated class for the NewsFeedPage page.
@@ -15,11 +16,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NewsFeedPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public posts: any;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private postService: PostsProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsFeedPage');
+  public ionViewDidLoad()
+  {
+    this.postService.getPosts().subscribe(
+      data => {
+        this.posts = data.posts;
+        
+      },
+      error => {
+
+      }
+    )
   }
 
 }

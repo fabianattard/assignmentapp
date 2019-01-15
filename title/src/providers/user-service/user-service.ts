@@ -57,7 +57,7 @@ export class UserServiceProvider {
    public signUp(credentials:any): Observable<any>
    {
      // the link here for the assignment will ideally be : http://api/assignment.local/login.php
-     return this.http.post<any>('http://api.assignment.local/login.php', credentials)
+     return this.http.post<any>('http://api.assignment.local/register.php', credentials)
      .pipe(
        catchError(error => { return Observable.throw(error.error); })
      );

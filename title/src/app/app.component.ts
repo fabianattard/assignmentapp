@@ -25,7 +25,6 @@ export class MyApp {
       { title: 'Profile', component: "profile" },
       {title: 'Forms', component: "forms"}
     ];
-
   }
 
   initializeApp() {

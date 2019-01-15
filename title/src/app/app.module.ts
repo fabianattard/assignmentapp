@@ -11,6 +11,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { ShowServiceProvider } from '../providers/show-service/profile-service';
+import { PostsProvider } from '../providers/posts/posts';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ShowServiceProvider } from '../providers/show-service/profile-service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    ShowServiceProvider
+    ShowServiceProvider,
+    PostsProvider
   ]
 })
 export class AppModule {}

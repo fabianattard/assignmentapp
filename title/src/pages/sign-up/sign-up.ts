@@ -92,7 +92,6 @@ export class SignUpPage {
       //We are successful, do the rest
       data => {
         loader.dismiss();
-        this.userService.storeUser(data.userdata);
         this.navCtrl.setRoot('logIn', {}, {animate: true});
       },
 

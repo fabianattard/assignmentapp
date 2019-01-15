@@ -8,18 +8,18 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-
+  
+  <ion-card *ngFor="let post of posts">
     <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/logo.png">
       </ion-avatar>
-      <h2>Redd Caruana</h2>
-      <p>January 5, 2019</p>
+      <h2>{{ post.name }} {{ post.surname }}  </h2>
+      <p>{{post.date}}</p>
     </ion-item>
   
     <ion-card-content>
-      <p>Lectures have been cancelled.</p>
+      <p>{{post.content}}</p>
     </ion-card-content>
   
     <ion-row>
@@ -35,49 +35,7 @@
           <div>4 Comments</div>
         </button>
       </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          11h ago
-        </ion-note>
-      </ion-col>
     </ion-row>
-  
   </ion-card>
   
-  <ion-card>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/imgs/logo.png">
-      </ion-avatar>
-      <h2>Josef Florian</h2>
-      <p>January 5, 2019</p>
-    </ion-item>
-  
-    <ion-card-content>
-      <p>Lectures have been cancelled. Assignment deadline has been extended.</p>
-    </ion-card-content>
-  
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>20 Likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>5 Comments</div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          21h ago
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  
-  </ion-card>
-
 </ion-content>
