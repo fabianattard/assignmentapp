@@ -71,4 +71,13 @@ export class UserServiceProvider {
       this.storage.set(key, value);
     });
   }
+    // Observables are structures that are capable of waiting for a request/connection to finish
+    public get_profile(): Observable<any>
+    {
+      // the link here for the assignment will ideally be : http://api/assignment.local/login.php
+      return this.http.get<any>('http://api.assignment.local/profile.php')
+      .pipe(
+        catchError(error => { return Observable.throw(error.error); })
+      );
+    }
 }

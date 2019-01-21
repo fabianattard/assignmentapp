@@ -31,7 +31,7 @@ export class ShowServiceProvider {
         }
       };
       // 3. Make the request and convert it to a promise 
-      return this.http.get('http://localhost/php/series-tracker/api/shows-list.php', httpOptions)
+      return this.http.get('http://api.assignment.local/profile.php', httpOptions)
       .pipe(
        catchError(error => { return Observable.throw(error).toPromise()}) 
       ).toPromise();

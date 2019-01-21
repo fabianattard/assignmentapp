@@ -9,56 +9,49 @@
 
 
 <ion-content padding>
-  <form>
+  
     <ion-card>
       <ion-list radio-group margin-bottom>
+        
         <ion-list-header>
           Choose Form Type:
         </ion-list-header>
       
         <ion-item>
           <ion-label>Absenteeism</ion-label>
-          <ion-radio value="absent"></ion-radio>
+          <ion-radio (click)="setFormType('absenteeism')" checked></ion-radio>
         </ion-item>
       
         <ion-item>
-          <ion-label>Exntension</ion-label>
-          <ion-radio value="exntension"></ion-radio>
+          <ion-label>Extension</ion-label>
+          <ion-radio (click)="setFormType('extension')"></ion-radio>
         </ion-item>
       
         <ion-item>
           <ion-label>Report</ion-label>
-          <ion-radio value="report"></ion-radio>
+          <ion-radio (click)="setFormType('report')"></ion-radio>
         </ion-item>
 
         <ion-item>
         <ion-label>Other</ion-label>
-          <ion-radio value="other"></ion-radio>
+          <ion-radio (click)="setFormType('other')"></ion-radio>
         </ion-item>
         
       </ion-list>
-
-      <ion-item>
-          <ion-label>Name</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Email</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-
+      <form [formGroup]="formGroup">
       <ion-item>
         <ion-label>About</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="formAbout"></ion-input>
      </ion-item>
       
      <ion-item>
        <ion-label floating>Message:</ion-label>
-       <ion-textarea></ion-textarea>
+       <ion-textarea  type="text" formControlName="formMessage"></ion-textarea>
      </ion-item>
-
-     <button ion-button color="dark" class="button" outline round>Send</button>
+    </form>
     </ion-card>
-  </form>
+ 
+  <button ion-button color="dark" class="button" (click)="form()" outline round>Send</button>
+
+  
 </ion-content>

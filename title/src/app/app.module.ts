@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { ShowServiceProvider } from '../providers/show-service/profile-service';
 import { PostsProvider } from '../providers/posts/posts';
+import { FormSubmissionProvider } from '../providers/form-submission/form-submission';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PostsProvider } from '../providers/posts/posts';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
     ShowServiceProvider,
-    PostsProvider
+    PostsProvider,
+    FormSubmissionProvider
   ]
 })
 export class AppModule {}
